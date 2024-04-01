@@ -5,15 +5,15 @@ import (
 )
 
 // Markdown lexer.
-var Markdown = Register(DelegatingLexer(HTML, MustNewLexer(
-	&Config{
-		Name:      "markdown",
-		Aliases:   []string{"md", "mkd"},
-		Filenames: []string{"*.md", "*.mkd", "*.markdown"},
-		MimeTypes: []string{"text/x-markdown"},
-	},
-	markdownRules,
-)))
+// var Markdown = Register(DelegatingLexer(HTML, MustNewLexer(
+// 	&Config{
+// 		Name:      "markdown",
+// 		Aliases:   []string{"md", "mkd"},
+// 		Filenames: []string{"*.md", "*.mkd", "*.markdown"},
+// 		MimeTypes: []string{"text/x-markdown"},
+// 	},
+// 	markdownRules,
+// )))
 
 func markdownRules() Rules {
 	return Rules{

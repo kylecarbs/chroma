@@ -2,27 +2,14 @@ package lexers
 
 import (
 	"embed"
-	"io/fs"
 
 	"github.com/alecthomas/chroma/v2"
 )
 
-//go:embed embedded
 var embedded embed.FS
 
 // GlobalLexerRegistry is the global LexerRegistry of Lexers.
-var GlobalLexerRegistry = func() *chroma.LexerRegistry {
-	reg := chroma.NewLexerRegistry()
-	// index(reg)
-	paths, err := fs.Glob(embedded, "embedded/*.xml")
-	if err != nil {
-		panic(err)
-	}
-	for _, path := range paths {
-		reg.Register(chroma.MustNewXMLLexer(embedded, path))
-	}
-	return reg
-}()
+var GlobalLexerRegistry = chroma.NewLexerRegistry()
 
 // Names of all lexers, optionally including aliases.
 func Names(withAliases bool) []string {

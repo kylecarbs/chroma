@@ -1,9 +1,5 @@
 package lexers
 
-import (
-	. "github.com/alecthomas/chroma/v2" // nolint
-)
-
 var (
 	clBuiltinFunctions = []string{
 		"<", "<=", "=", ">", ">=", "-", "/", "/=", "*", "+", "1-", "1+",
@@ -229,15 +225,15 @@ var (
 )
 
 // Common Lisp lexer.
-var CommonLisp = Register(TypeRemappingLexer(MustNewXMLLexer(
-	embedded,
-	"embedded/common_lisp.xml",
-), TypeMapping{
-	{NameVariable, NameFunction, clBuiltinFunctions},
-	{NameVariable, Keyword, clSpecialForms},
-	{NameVariable, NameBuiltin, clMacros},
-	{NameVariable, Keyword, clLambdaListKeywords},
-	{NameVariable, Keyword, clDeclarations},
-	{NameVariable, KeywordType, clBuiltinTypes},
-	{NameVariable, NameClass, clBuiltinClasses},
-}))
+// var CommonLisp = Register(TypeRemappingLexer(MustNewXMLLexer(
+// 	embedded,
+// 	"embedded/common_lisp.xml",
+// ), TypeMapping{
+// 	{NameVariable, NameFunction, clBuiltinFunctions},
+// 	{NameVariable, Keyword, clSpecialForms},
+// 	{NameVariable, NameBuiltin, clMacros},
+// 	{NameVariable, Keyword, clLambdaListKeywords},
+// 	{NameVariable, Keyword, clDeclarations},
+// 	{NameVariable, KeywordType, clBuiltinTypes},
+// 	{NameVariable, NameClass, clBuiltinClasses},
+// }))

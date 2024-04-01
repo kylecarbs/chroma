@@ -1,9 +1,5 @@
 package lexers
 
-import (
-	. "github.com/alecthomas/chroma/v2" // nolint
-)
-
 var (
 	emacsMacros = []string{
 		"atomic-change-group", "case", "block", "cl-block", "cl-callf", "cl-callf2",
@@ -521,13 +517,13 @@ var (
 )
 
 // EmacsLisp lexer.
-var EmacsLisp = Register(TypeRemappingLexer(MustNewXMLLexer(
-	embedded,
-	"embedded/emacslisp.xml",
-), TypeMapping{
-	{NameVariable, NameFunction, emacsBuiltinFunction},
-	{NameVariable, NameBuiltin, emacsSpecialForms},
-	{NameVariable, NameException, emacsErrorKeywords},
-	{NameVariable, NameBuiltin, append(emacsBuiltinFunctionHighlighted, emacsMacros...)},
-	{NameVariable, KeywordPseudo, emacsLambdaListKeywords},
-}))
+// var EmacsLisp = Register(TypeRemappingLexer(MustNewXMLLexer(
+// 	embedded,
+// 	"embedded/emacslisp.xml",
+// ), TypeMapping{
+// 	{NameVariable, NameFunction, emacsBuiltinFunction},
+// 	{NameVariable, NameBuiltin, emacsSpecialForms},
+// 	{NameVariable, NameException, emacsErrorKeywords},
+// 	{NameVariable, NameBuiltin, append(emacsBuiltinFunctionHighlighted, emacsMacros...)},
+// 	{NameVariable, KeywordPseudo, emacsLambdaListKeywords},
+// }))
